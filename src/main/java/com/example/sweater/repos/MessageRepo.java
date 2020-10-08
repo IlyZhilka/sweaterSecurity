@@ -7,6 +7,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface MessageRepo extends CrudRepository<Message,Long> {
-    List<Message> findByTime(String time);
+    List<Message> findByTag(String tag);
 
 }
