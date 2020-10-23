@@ -39,6 +39,7 @@ public class MainController {
 
     @PostMapping("/main")
     public String add(
+
             @AuthenticationPrincipal User user,
             @RequestParam String text,
             @RequestParam String tag, Map<String, Object> model
@@ -50,7 +51,7 @@ public class MainController {
         Iterable<Message> messages = messageRepo.findAll();
 
         model.put("messages", messages);
-
+        System.out.println("Hello Test Branch");
         return "main";
     }
 
