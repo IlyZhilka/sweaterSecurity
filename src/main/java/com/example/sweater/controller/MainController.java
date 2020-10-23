@@ -3,6 +3,7 @@ package com.example.sweater.controller;
 import com.example.sweater.domain.Message;
 import com.example.sweater.domain.User;
 import com.example.sweater.repos.MessageRepo;
+import com.example.sweater.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,7 @@ import java.util.Map;
 public class MainController {
     @Autowired
     private MessageRepo messageRepo;
+    private UserRepo userRepo;
 
     @GetMapping("/")
     public String greeting(Map<String, Object> model) {
@@ -22,7 +24,8 @@ public class MainController {
     }
 
     @GetMapping("/main")
-    public String main(@RequestParam(required = false, defaultValue = "") String filter, Model model) {
+    public String main(@RequestParam(required = false, defaultValue = "")
+                                   String filter, Model model) {
         Iterable<Message> messages = messageRepo.findAll();
 
         if (filter != null && !filter.isEmpty()) {
@@ -56,6 +59,7 @@ public class MainController {
 
     @GetMapping("/messages/{id}")
     public String deleteMessage(@PathVariable Long id) {
+
         messageRepo.deleteById(id);
         return "redirect:/main";
     }
