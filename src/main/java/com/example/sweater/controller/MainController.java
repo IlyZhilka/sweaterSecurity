@@ -57,10 +57,16 @@ public class MainController {
         return "main";
     }
 
-    @GetMapping("/messages/{id}")
-    public String deleteMessage(@PathVariable Long id) {
+    @GetMapping("/messages/{message}")
+    public String deleteMessage(@PathVariable Message message,
+                                @AuthenticationPrincipal User user,
+                                Model model) {
 
-        messageRepo.deleteById(id);
+        if (user.getUsername() .equals(message.getAuthorName())) {
+            messageRepo.deleteById(message.getId());
+        }else {
+            System.out.println("Nothing");
+        }
         return "redirect:/main";
     }
 }

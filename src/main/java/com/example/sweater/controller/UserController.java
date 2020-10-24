@@ -1,6 +1,5 @@
 package com.example.sweater.controller;
 
-import com.example.sweater.domain.Message;
 import com.example.sweater.domain.Role;
 import com.example.sweater.domain.User;
 import com.example.sweater.repos.UserRepo;
@@ -17,7 +16,9 @@ import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/user")
+//@PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER')")
 @PreAuthorize("hasAuthority('ADMIN')")
+
 public class UserController {
     @Autowired
     private UserRepo userRepo;
