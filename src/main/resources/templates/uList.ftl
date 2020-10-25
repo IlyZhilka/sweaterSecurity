@@ -5,21 +5,21 @@
 
     <table>
 
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th>Role</th>
-    </tr>
-    </thead>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Role</th>
+        </tr>
+        </thead>
         <tbody>
         <div>
-        <form action="/user" method="get">
-            <input type="text" name="filterRole" value="${RequestParameters.filterRole!}">
-            <button type="submit">Найти</button>
-            <input type="hidden" name="_csrf" value="${_csrf.token}" />
-        </form>
+            <form action="/user" method="get">
+                <input type="text" name="filterRole" value="${RequestParameters.filterRole!}">
+                <button type="submit">Найти</button>
+                <input type="hidden" name="_csrf" value="${_csrf.token}" />
+            </form>
         </div>
-    </thead>
+        </thead>
         <#list users as user>
             <tr>
                 <td>${user.username}</td>
