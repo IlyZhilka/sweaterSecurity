@@ -26,6 +26,7 @@
             <span>${message.text}</span>
             <i>${message.tag}</i>
             <strong>${message.authorName}</strong>
+
             <b><a href="/messages/${message.id}">Delete</a></b>
             <div>
                 <#if message.filename??>

@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.awt.*;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Map;
 import java.util.UUID;
@@ -60,6 +61,8 @@ public class MainController {
 
         Message message = new Message(text, tag, user);
 
+
+
         if ( file != null && !file.getOriginalFilename().isEmpty()){
             File uploadDir = new File(uploadPath);
             if (!uploadDir.exists()){
@@ -77,7 +80,7 @@ public class MainController {
         Iterable<Message> messages = messageRepo.findAll();
 
         model.put("messages", messages);
-        System.out.println("Hello Test Branch");
+
         return "main";
     }
 

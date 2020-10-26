@@ -1,6 +1,7 @@
 package com.example.sweater.domain;
 import javax.persistence.*;
 import java.awt.*;
+import java.sql.Blob;
 
 @Entity
 public class Message {
@@ -9,8 +10,8 @@ public class Message {
     private Long id;
     private String text;
     private String tag;
-
     private String filename;
+
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
@@ -69,4 +70,5 @@ public class Message {
     public void setFilename(String filename) {
         this.filename = filename;
     }
+
 }
