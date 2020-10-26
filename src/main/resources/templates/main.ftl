@@ -49,6 +49,9 @@
     </div>
     <div class="card-footer text-muted">
         ${message.authorName}
+        <div>
+            <img src="/images/delete.png">
+        </div>
         <b><a href="/messages/${message.id}">Delete</a></b>
     </div>
     </div>
